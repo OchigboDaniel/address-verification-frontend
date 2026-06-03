@@ -146,6 +146,10 @@
 
     box-shadow: 0 0 25px rgba(214, 199, 255, 0.4);
   }
+
+  .errorMessage {
+    @apply text-rose-400;
+  }
 }
 
 @utility text-gradient {
