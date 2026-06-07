@@ -154,6 +154,34 @@
   .errorMessage {
     @apply text-rose-400;
   }
+
+  .admin-table {
+    @apply w-full border-collapse mt-8;
+
+    & thead {
+      @apply bg-light-100/10;
+    }
+
+    & thead th {
+      @apply text-left px-4 py-3 text-light-200 font-semibold text-sm uppercase tracking-wider;
+    }
+
+    & tbody tr {
+      @apply border-b border-light-100/10 hover:bg-light-100/5 transition-all duration-200;
+    }
+
+    & tbody td {
+      @apply px-4 py-3 text-gray-100 text-sm;
+    }
+  }
+
+  .admin-wrapper {
+    @apply px-5 py-12 xs:p-10 max-w-7xl mx-auto flex flex-col relative z-10;
+  }
+
+  .export-btn {
+    @apply px-6 py-2 rounded-xl font-medium text-black bg-gradient-to-r from-[#D6C7FF] to-[#AB8BFF] hover:scale-105 transition-all duration-300 self-end mb-4;
+  }
 }
 
 @utility text-gradient {
