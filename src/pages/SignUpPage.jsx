@@ -18,11 +18,16 @@ function SignUpPage() {
     //Error Message
     const [message, setMessage] = useState('')
 
+    //BE base URL
+   //const BE_BASE_URL = import.meta.env
+
     //Function to handle signup
     async function handleSignUp() {
+
+        //const signupURL = BE_BASE_URL + "/api/auth/signup"
         
         try {
-            const response = await fetch('http://localhost:8080/api/auth/signup', {
+            const response = await fetch("http://localhost:8080/api/auth/signup", {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ fullName, email, password })

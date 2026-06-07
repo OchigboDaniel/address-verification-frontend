@@ -46,6 +46,10 @@
   header img {
     @apply w-full max-w-lg h-auto object-contain mx-auto drop-shadow-md;
   }
+
+  p {
+    @apply text-gray-700 text-base leading-relaxed mb-4;
+  }
 }
 
 @layer components {

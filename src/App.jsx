@@ -3,15 +3,22 @@ import WelcomePage from './pages/WelcomePage'
 import LoginPage from './pages/LoginPage'
 import VerifyPage from './pages/VerifyPage'
 import SignUpPage from './pages/SignUpPage'
+import ProtectedRoute from './components/ProtectedRoute'
+
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<WelcomePage />} />
+        <Route path="/signup" element={<SignUpPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/verify" element={<VerifyPage />} />
-        <Route path="/signup" element={<SignUpPage/>} />
+        <Route path="/verify" element={
+          <ProtectedRoute>
+            <VerifyPage />
+          </ProtectedRoute>
+        } />
+        
       </Routes>
     </BrowserRouter>
   )

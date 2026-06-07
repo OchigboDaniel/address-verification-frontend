@@ -5,11 +5,16 @@ import ErrorMessage from '../components/Errormessage'
 import { useNavigate } from 'react-router-dom'
 
 
+
+
 function LoginPage() {
     const navigate = useNavigate()
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+
+    //BackEnd Url
+    //const BE_BASE_URL = import.meta.env.BACKEND_URL
 
     //Error Message
     const [message, setMessage] = useState('')
@@ -17,25 +22,29 @@ function LoginPage() {
     // Function that handles the login
     async function handleLogin() {
 
+       //const loginURL = BE_BASE_URL + "/api/auth/login"
+
         try {
 
-            const response = await fetch('http://localhost:8080/api/auth/login', {
+            const response = await fetch("http://localhost:8080/api/auth/login", {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, password })
             })
 
-            const data = await response.json()
+
 
             if (response.status === 401) {
                 setMessage("Incorrect Password")
                 return
             }
 
-
-
             if (response.ok) {
+                const data = await response.json()
+                console.log(data.data.token)
+                localStorage.setItem('token', data.data.token)
                 navigate('/verify')
+
                 return
             }
 
