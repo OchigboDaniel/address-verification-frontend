@@ -9,13 +9,15 @@ async function fetchAddress(url, token) {
         },
     })
 
-    console.log(`data ${response}`)
+    
 
     if (!response.ok) {
         throw new Error(`Request failed: ${response.status}`);
     }
 
-    return response.json();
+    const data = await response.json();
+
+    return data;
     
 }
 

@@ -42,7 +42,7 @@ function VerifyPage() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${token}`
+          "Authorization": `Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkYW5pZWxvY2hpZ2JvLmdtYWlsLmNvbSIsImlhdCI6MTc4MDkzODY3MCwiZXhwIjoxNzgwOTQyMjcwfQ.UAV7obqD90efV3vGUBcUCMY113RgRkoodVAWi5pELvE`
         },
         body: JSON.stringify({
           latitude: geodata.latitude,
