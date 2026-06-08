@@ -28,8 +28,6 @@ function VerifyPage() {
 
     //Get Token
     const token = localStorage.getItem("token");
-    console.log(token)
-
 
     //call the fuction theat gets the latitude and longitude
     const geodata = await getGeoLocation();
@@ -42,7 +40,7 @@ function VerifyPage() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkYW5pZWxvY2hpZ2JvLmdtYWlsLmNvbSIsImlhdCI6MTc4MDkzODY3MCwiZXhwIjoxNzgwOTQyMjcwfQ.UAV7obqD90efV3vGUBcUCMY113RgRkoodVAWi5pELvE`
+          "Authorization": `Bearer ${token}`
         },
         body: JSON.stringify({
           latitude: geodata.latitude,

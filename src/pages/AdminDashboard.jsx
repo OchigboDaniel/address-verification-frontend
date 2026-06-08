@@ -17,7 +17,7 @@ function AdminDashboard() {
 
                 const token = localStorage.getItem("token");
 
-                const response = await fetchAddress("http://localhost:8080/api/address", "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYW5hZ2VyQGV4YW1wbGUuY29tIiwiaWF0IjoxNzgwOTM3Mzk3LCJleHAiOjE3ODA5NDA5OTd9.n2RVKTopGDY8ylwDcamrrwY82sWodX3HDkfc4PaA3wU");
+                const response = await fetchAddress("http://localhost:8080/api/address", token);
                 
                 
 
@@ -41,7 +41,7 @@ function AdminDashboard() {
         const response = await fetch("http://localhost:8080/api/address?export=true", {
             method: "GET",
             headers: {
-                "Authorization": `Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYW5hZ2VyQGV4YW1wbGUuY29tIiwiaWF0IjoxNzgwOTM3Mzk3LCJleHAiOjE3ODA5NDA5OTd9.n2RVKTopGDY8ylwDcamrrwY82sWodX3HDkfc4PaA3wU`
+                "Authorization": `Bearer ${token}`
             }
         })
 

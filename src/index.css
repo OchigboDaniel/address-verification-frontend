@@ -227,6 +227,21 @@
   .auth-link span {
     @apply text-[#AB8BFF] cursor-pointer hover:underline;
   }
+
+  .navbar {
+    @apply w-full px-10 py-4 flex flex-row justify-between items-center relative z-10;
+    background: rgba(3, 0, 20, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(206, 206, 251, 0.1);
+  }
+
+  .navbar-brand {
+    @apply text-white font-bold text-xl cursor-pointer;
+  }
+
+  .navbar-brand span {
+    @apply text-gradient;
+  }
 }
 
 @utility text-gradient {

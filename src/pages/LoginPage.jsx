@@ -5,8 +5,6 @@ import ErrorMessage from '../components/Errormessage'
 import { useNavigate } from 'react-router-dom'
 
 
-
-
 function LoginPage() {
     const navigate = useNavigate()
 
@@ -41,9 +39,14 @@ function LoginPage() {
 
             if (response.ok) {
                 const data = await response.json()
-                console.log(data.data.token)
                 localStorage.setItem('token', data.data.token)
-                navigate('/verify')
+                localStorage.setItem('role', data.data.role)
+
+                if (data.data.role === "USER") {
+                    navigate('/verify-address')
+                } else {
+                    navigate('/admin/dashboard')
+                }
 
                 return
             }
@@ -77,7 +80,7 @@ function LoginPage() {
                     <ErrorMessage message={message} />
 
                     <Button text="Login" handleSubmit={handleLogin} />
-                    
+
                     <p className="auth-link">
                         Don't have an account? <span onClick={() => navigate('/signup')}>Sign Up</span>
                     </p>

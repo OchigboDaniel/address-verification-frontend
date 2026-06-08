@@ -5,28 +5,31 @@ import VerifyPage from './pages/VerifyPage'
 import SignUpPage from './pages/SignUpPage'
 import ProtectedRoute from './components/ProtectedRoute'
 import AdminDashboard from './pages/AdminDashboard'
+import NavBar from './components/NavBar'
+
 
 
 
 function App() {
   return (
     <BrowserRouter>
+      <NavBar />
       <Routes>
         <Route path="/" element={<WelcomePage />} />
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/verify-address" element={
-          <ProtectedRoute>
+          <ProtectedRoute requiredRole="USER">
             <VerifyPage />
           </ProtectedRoute>
         } />
 
         <Route path="/admin/dashboard" element={
-          <ProtectedRoute>
+          <ProtectedRoute requiredRole="MANAGER">
             <AdminDashboard />
-          </ProtectedRoute>          
-        }/>
-        
+          </ProtectedRoute>
+        } />
+
       </Routes>
     </BrowserRouter>
   )
