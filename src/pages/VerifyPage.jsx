@@ -2,6 +2,8 @@ import { useState } from 'react'
 import Button from '../components/Button'
 import { useNavigate } from 'react-router-dom'
 import getGeoLocation from '../service/getGeoLocation'
+import { verifyAddressURL } from '../config'
+
 
 
 
@@ -24,8 +26,6 @@ function VerifyPage() {
     //Verifying indicator
     setIsLoading(true);
 
-    //const verifyURL = BE_BASE_URL + "/api/verify-address"
-
     //Get Token
     const token = localStorage.getItem("token");
 
@@ -36,7 +36,7 @@ function VerifyPage() {
 
     try {
 
-      const response = await fetch("http://localhost:8080/api/verify-address", {
+      const response = await fetch(verifyAddressURL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

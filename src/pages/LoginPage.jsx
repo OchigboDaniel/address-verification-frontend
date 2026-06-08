@@ -3,6 +3,8 @@ import Input from '../components/Input'
 import Button from '../components/Button'
 import ErrorMessage from '../components/Errormessage'
 import { useNavigate } from 'react-router-dom'
+import { loginURL } from '../config'
+
 
 
 function LoginPage() {
@@ -20,11 +22,9 @@ function LoginPage() {
     // Function that handles the login
     async function handleLogin() {
 
-        //const loginURL = BE_BASE_URL + "/api/auth/login"
-
         try {
 
-            const response = await fetch("http://localhost:8080/api/auth/login", {
+            const response = await fetch(loginURL, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, password })

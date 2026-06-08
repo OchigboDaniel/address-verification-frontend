@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react"
 import fetchAddress from "../service/fetchAddress";
+import { exportCSVFileURL, addressURL } from "../config";
+
 
 
 function AdminDashboard() {
@@ -17,7 +19,7 @@ function AdminDashboard() {
 
                 const token = localStorage.getItem("token");
 
-                const response = await fetchAddress("http://localhost:8080/api/address", token);
+                const response = await fetchAddress(addressURL, token);
                 
                 
 
@@ -38,7 +40,7 @@ function AdminDashboard() {
     async function exportCSV() {
         const token = localStorage.getItem("token")
 
-        const response = await fetch("http://localhost:8080/api/address?export=true", {
+        const response = await fetch(exportCSVFileURL, {
             method: "GET",
             headers: {
                 "Authorization": `Bearer ${token}`
