@@ -49,6 +49,8 @@ function SignUpPage() {
 
     return (
         <main>
+            <div className="wrapper">
+      <div className="auth-card">
             <h1>SignUp</h1>
             <Input
                 type="text"
@@ -75,6 +77,13 @@ function SignUpPage() {
                 text="Sign Up"
                 handleSubmit={handleSignUp}
             />
+
+            <p className="auth-link">
+          Already have an account? <span onClick={() => navigate('/login')}>login</span>
+        </p>
+
+            </div>
+            </div>
 
 
 

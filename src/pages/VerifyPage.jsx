@@ -67,11 +67,11 @@ function VerifyPage() {
       }
 
     } catch (error) {
-      
+
       setVerificationStatus("Unable to verify, please try again later")
 
     } finally {
-      setIsLoading(false) 
+      setIsLoading(false)
     }
 
 
@@ -79,14 +79,30 @@ function VerifyPage() {
 
   return (
     <main>
-      <h1>Verify</h1>
+      <div className="wrapper">
+        <h1>Verify <span className="text-gradient">Address</span></h1>
 
-      <p>{verificationStatus}</p>
-      <p>{latitude}</p>
-      <p>{longitude}</p>
-      <p>{formattedAddress}</p>
+        <p className="text-center text-light-200 mt-4">
+          Click the button below to confirm your physical location
+        </p>
 
-      {isLoading ? <p>Verifing...</p> : <Button text=" Verify Address " handleSubmit={addressVerificationHandler} />}
+        <div className="verify-card">
+
+          <p className="verify-status"> {verificationStatus}</p>
+          <p className="verify-address">{formattedAddress}</p>
+          <p className="verify-coords">
+            {latitude?.toFixed(6)}, {longitude?.toFixed(6)}
+          </p>
+
+        </div>
+
+        <br />
+        <br />
+
+        {isLoading ? <p className="verifying-text">Verifying your location...</p>
+          : <Button text="Verify Address" handleSubmit={addressVerificationHandler} />
+        }
+      </div>
 
     </main>
 

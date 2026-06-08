@@ -22,7 +22,7 @@ function LoginPage() {
     // Function that handles the login
     async function handleLogin() {
 
-       //const loginURL = BE_BASE_URL + "/api/auth/login"
+        //const loginURL = BE_BASE_URL + "/api/auth/login"
 
         try {
 
@@ -58,23 +58,31 @@ function LoginPage() {
 
     return (
         <main>
-            <h1>Login</h1>
-            <Input
-                type="email"
-                placeholder="Email"
-                value={email}
-                setValue={setEmail}
-            />
+            <div className="wrapper">
+                <div className="auth-card">
+                    <h1>Login</h1>
+                    <Input
+                        type="email"
+                        placeholder="Email"
+                        value={email}
+                        setValue={setEmail}
+                    />
 
-            <Input
-                type="password"
-                placeholder="Password"
-                value={password}
-                setValue={setPassword}
-            />
-            <ErrorMessage message={message} />
+                    <Input
+                        type="password"
+                        placeholder="Password"
+                        value={password}
+                        setValue={setPassword}
+                    />
+                    <ErrorMessage message={message} />
 
-            <Button text="Login" handleSubmit={handleLogin} />
+                    <Button text="Login" handleSubmit={handleLogin} />
+                    
+                    <p className="auth-link">
+                        Don't have an account? <span onClick={() => navigate('/signup')}>Sign Up</span>
+                    </p>
+
+                </div></div>
         </main>
     )
 }
