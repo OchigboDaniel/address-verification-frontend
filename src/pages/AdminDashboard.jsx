@@ -10,20 +10,20 @@ function AdminDashboard() {
     const [errorMessage, setErrorMessage] = useState(null);
     const [loading, setLoading] = useState(false);
 
+    const [currentPage, setCurrentPage] = useState(0)
+    const [totalPages, setTotalPages] = useState(0)
+
     //
     useEffect(() => {
         setLoading(true);
 
         async function loadAddress() {
             try {
-
                 const token = localStorage.getItem("token");
+                const response = await fetchAddress(addressURL, token, currentPage);
 
-                const response = await fetchAddress(addressURL, token);
-                
-                
-
-                setListaddress(response.data)
+                setListaddress(response.data.content)
+                setTotalPages(response.data.page.totalPages)
 
             } catch (error) {
                 setErrorMessage("Unable to retrieve data at the moment");
@@ -34,7 +34,7 @@ function AdminDashboard() {
 
         loadAddress();
 
-    }, [])
+    }, [currentPage])
 
     //export csv
     async function exportCSV() {
@@ -84,6 +84,21 @@ function AdminDashboard() {
                         ))}
                     </tbody>
                 </table>
+
+                
+                <div className="pagination">
+                    <button
+                        onClick={() => setCurrentPage(p => p - 1)}
+                        disabled={currentPage === 0}>
+                        Previous
+                    </button>
+                    <span>Page {currentPage + 1} of {totalPages}</span>
+                    <button
+                        onClick={() => setCurrentPage(p => p + 1)}
+                        disabled={currentPage === totalPages - 1}>
+                        Next
+                    </button>
+                </div>
             </div>
 
         </main>

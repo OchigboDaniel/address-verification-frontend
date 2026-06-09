@@ -3,7 +3,7 @@ import Input from '../components/Input';
 import Button from '../components/Button';
 import { useNavigate } from 'react-router-dom'
 import ErrorMessage from '../components/Errormessage';
-import signupURL from '../config';
+import {signupURL} from '../config';
 
 
 
