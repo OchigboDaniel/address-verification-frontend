@@ -1,7 +1,6 @@
-async function fetchAddress(url, token, page = 0) {
+async function fetchAddress(url, token, page = 0, country = '', state = '', email = '') {
 
-
-    const response = await fetch(`${url}?page=${page}&size=10&sortBy=id&direction=asc`, {
+    const response = await fetch(`${url}?page=${page}&size=10&sortBy=id&direction=asc&country=${country}&state=${state}&email=${email}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
