@@ -60,34 +60,33 @@ function LoginPage() {
     }
 
     return (
-        <main>
-            <div className="wrapper">
-                <div className="auth-card">
-                    <h1>Login</h1>
-                    <Input
-                        type="email"
-                        placeholder="Email"
-                        value={email}
-                        setValue={setEmail}
-                    />
 
-                    <Input
-                        type="password"
-                        placeholder="Password"
-                        value={password}
-                        setValue={setPassword}
-                    />
-                    <ErrorMessage message={message} />
-
-                    <Button text="Login" handleSubmit={handleLogin} />
-
-                    <p className="auth-link">
-                        Don't have an account? <span onClick={() => navigate('/signup')}>Sign Up</span>
-                    </p>
-
-                </div></div>
+        <main className="auth-main">
+            <div className="auth-card">
+                <h2>Login</h2>
+                <input
+                    className="auth-input"
+                    type="email"
+                    placeholder="Email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                />
+                <input
+                    className="auth-input"
+                    type="password"
+                    placeholder="Password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                />
+                <ErrorMessage message={message} />
+                <button className="submit-bttn" onClick={handleLogin}>Login</button>
+                <p className="auth-link">
+                    Don't have an account? <span onClick={() => navigate('/signup')}>Sign Up</span>
+                </p>
+            </div>
         </main>
     )
+
 }
 
 export default LoginPage

@@ -46,22 +46,25 @@ function SignUpPage() {
 
     return (
         <main>
-            <div className="wrapper">
+            <div className="auth-main">
                 <div className="auth-card">
                     <h1>SignUp</h1>
                     <Input
+                        className="auth-input"
                         type="text"
                         placeholder="Full Name"
                         value={fullName}
                         setValue={setFullName}
                     />
                     <Input
+                        className="auth-input"
                         type="email"
                         placeholder="Email"
                         value={email}
                         setValue={setEmail}
                     />
                     <Input
+                        className="auth-input"
                         type="password"
                         placeholder="Password"
                         value={password}

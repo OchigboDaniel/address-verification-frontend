@@ -101,23 +101,27 @@ function AdminDashboard() {
 
                 <table className="admin-table">
                     <thead>
-                        <tr>
-                            <th>Address</th>
-                            <th>State</th>
-                            <th>Country</th>
-                            <th>Email</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {listAddress.map((record) => (
-                            <tr key={record.id}>
-                                <td>{record.formattedAddress}</td>
-                                <td>{record.state}</td>
-                                <td>{record.country}</td>
-                                <td>{record.ownerEmail}</td>
-                            </tr>
-                        ))}
-                    </tbody>
+    <tr>
+        <th>Address</th>
+        <th>State</th>
+        <th>Country</th>
+        <th>Bill Status</th>
+        <th>Email</th>
+    </tr>
+</thead>
+<tbody>
+    {listAddress.map((record) => (
+        <tr key={record.id}>
+            <td>{record.formattedAddress}</td>
+            <td>{record.state}</td>
+            <td>{record.country}</td>
+            <td className={`status-badge ${record.validationStatus?.toLowerCase()}`}>
+                {record.validationStatus}
+            </td>
+            <td>{record.ownerEmail}</td>
+        </tr>
+    ))}
+</tbody>
                 </table>
 
                 <div className="table-footer">
